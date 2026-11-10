@@ -84,3 +84,7 @@ Sections 1 and 2 now use different backgrounds (near-white intro and warm taupe 
 ## Replace a failed module (November 2026)
 
 The modularity section includes a dedicated "One part stops working. Keep the rest." block with conceptual before/after illustrations for separately replacing the display or charger, while retaining the mat and remaining working component. The design benefit is intended independent serviceability; no tested ease-of-repair rating, guaranteed DIY operation, production spare availability, warranty coverage, replacement pricing or specific module compatibility is promised. A corresponding FAQ answers the failure scenario explicitly. Review the actual attachment and safety requirements before finalizing customer-facing service promises.
+
+## Compact "Built Around You" section (November 2026)
+
+On desktop widths of 1100px and above, the audience section uses less vertical padding, shorter descriptions, shorter image crops, and tighter card spacing so visitors can see the three audience stories together more easily at typical laptop/desktop heights. A separate compact adjustment activates for desktop browser windows shorter than 740px. Narrower layouts retain their responsive card structure and readable type. Images use the existing licensed-in-project concept renderings; check the crops in the deployed browser and adjust the image focus if a specific product detail is obscured. Full-section one-viewport fit cannot be guaranteed for every resolution, browser zoom, or accessibility font setting.
