@@ -29,10 +29,10 @@ function Header({ onWaitlist }) {
     <div className="header-inner container">
       <Logo onClick={close}/>
       <nav className={`nav-links ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-        <a href="#materials" onClick={close}>The feel</a>
-        <a href="#features" onClick={close}>The function</a>
-        <a href="#design" onClick={close}>The platform</a>
-        <a href="#colors" onClick={close}>Colorways</a>
+        <a href="#for-you" onClick={close}>Who it's for</a>
+        <a href="#features" onClick={close}>What it does</a>
+        <a href="#design" onClick={close}>Modular design</a>
+        <a href="#colors" onClick={close}>Finishes</a>
         <a href="#faq" onClick={close}>FAQs</a>
         <button className="nav-mobile-cta" onClick={() => {close(); onWaitlist();}}>Join the waitlist <ArrowUpRight size={17}/></button>
       </nav>
@@ -48,16 +48,17 @@ function Hero() {
     <div className="hero-shade"/>
     <div className="container hero-inner">
       <div className="hero-copy">
-        <div className="eyebrow eyebrow-light"><span className="tiny-diamond"/> MEET SLATE BY AVOLYN</div>
-        <h1>A place to begin.<br/><em>Room to evolve.</em></h1>
-        <p>A premium desk surface built around a modular platform. Keep everyday information in view, spend less time switching tabs, and make room for the way you work.</p>
+        <div className="eyebrow eyebrow-light"><span className="tiny-diamond"/> MEET SLATE / THE SMART DESK MAT FOR WORK & PLAY</div>
+        <h1>Make more of<br/><em>your desk.</em></h1>
+        <p>Meet Slate by Avolyn: a premium modular desk mat designed to bring your daily information, wireless charging, and personal style together. Made for focused work, creative projects, and gaming setups.</p>
         <div className="hero-actions">
-          <a className="button button-cream" href="#slate">Begin the journey <ArrowDown size={17}/></a>
+          <a className="button button-cream" href="#for-you">Find your Slate <ArrowDown size={17}/></a>
           <a className="hero-text-link" href="#waitlist">Join the waitlist <ArrowUpRight size={17}/></a>
         </div>
+        <p className="hero-availability">In development · Display views and charging are planned features</p>
       </div>
       <div className="hero-footer">
-        <span>ONE SURFACE. AN OPEN FUTURE.</span>
+        <span>BUILT FOR WORK. PLAY. EVERYTHING BETWEEN.</span>
         <span className="hero-footer-right"><span className="hero-line"/> SCROLL TO EXPLORE</span>
       </div>
     </div>
@@ -70,17 +71,66 @@ function SectionKicker({ children }) {
 
 function Introduction() {
   return <section className="intro-section section-pad" id="slate"><div className="container intro-grid">
-    <div className="intro-copy"><SectionKicker>01 / FIND YOUR SPACE</SectionKicker><h2>Your everyday.<br/>Reconsidered<span className="punctuation">.</span></h2><p>From your first coffee to focused work and an evening game, your desk is part of your everyday life. Slate brings a comfortable surface and useful technology together in a space that feels like yours.</p><a href="#materials" className="inline-link">Start with the surface <ArrowUpRight size={17}/></a></div>
+    <div className="intro-copy"><SectionKicker>01 / A DESK THAT DOES MORE</SectionKicker><h2>One desk.<br/>Every part of your day<span className="punctuation">.</span></h2><p>Your desk is where you plan the day, focus on what matters, make something new, and unwind. Slate is designed to support those moments with a premium surface, glanceable information, and parts you can change as your setup evolves.</p><a href="#for-you" className="inline-link">See who Slate is for <ArrowUpRight size={17}/></a></div>
     <div className="intro-visual"><img src={`${ASSET}slate-sakura.webp`} alt="Sakura Slate desk mat concept with keyboard and e-ink display" loading="lazy"/><div className="intro-visual-tag"><span className="tag-point"/> THE SAKURA CONCEPT</div></div>
   </div></section>;
 }
 
+
+const audienceStories = [
+  {
+    id: 'work',
+    kicker: 'FOR THE FOCUSED',
+    title: 'Work with fewer interruptions.',
+    copy: 'For people balancing meetings, deep work, and the details of a busy day. Slate is designed to put upcoming events within a glance, so your main screen can stay on what matters.',
+    detail: 'Planned display view: calendar and daily schedule',
+    image: 'slate-setup-work.webp',
+    alt: 'Concept of Slate on a warm professional desk, with a keyboard and sample calendar information shown on the e-ink display'
+  },
+  {
+    id: 'gaming',
+    kicker: 'FOR THE ENTHUSIASTS',
+    title: 'Make your setup your own.',
+    copy: 'For gamers and PC builders who put thought into every part of their desk. Bring together a premium mouse surface, personal finishes, and a dedicated place for useful system information.',
+    detail: 'Planned display view: CPU and GPU temperatures',
+    image: 'slate-setup-gaming.webp',
+    alt: 'Concept of Charcoal Slate in a gaming setup with sample computer system temperatures on the e-ink display'
+  },
+  {
+    id: 'studio',
+    kicker: 'FOR THE CREATORS',
+    title: 'Leave room for your next idea.',
+    copy: 'For designers, developers, and anyone who creates at their desk. Give your tools a cohesive home, personalize the surface, and keep the small details in sight without crowding your workspace.',
+    detail: 'Design goal: interchangeable surface and modules',
+    image: 'slate-setup-studio.webp',
+    alt: 'Concept of Slate in a light creative studio with keyboard, mouse and sample information on the e-ink display'
+  }
+];
+
+function WhoItsFor() {
+  return <section className="audience-section section-pad" id="for-you" aria-labelledby="audience-title">
+    <div className="container">
+      <div className="audience-heading">
+        <div><SectionKicker>02 / BUILT AROUND YOU</SectionKicker><h2 id="audience-title">A better desk looks<br/><em>different to everyone.</em></h2></div>
+        <p>Whether you're working, playing, or making something new, Slate is designed to fit the way you use your space—not the other way around.</p>
+      </div>
+      <div className="audience-grid">
+        {audienceStories.map(story => <article className="audience-card" key={story.id}>
+          <div className="audience-image"><img src={ASSET + story.image} alt={story.alt} loading="lazy" width="1536" height="1024"/><span>CONCEPT SETUP</span></div>
+          <div className="audience-card-copy"><div className="audience-kicker">{story.kicker}</div><h3>{story.title}</h3><p>{story.copy}</p><div className="audience-detail"><Check size={15} aria-hidden="true"/><span>{story.detail}</span></div></div>
+        </article>)}
+      </div>
+      <div className="audience-bottom"><span>One modular platform. Built to adapt to your workspace.</span><a href="#features" className="inline-link">Explore what Slate does <ArrowUpRight size={16}/></a></div>
+    </div>
+  </section>;
+}
+
 function Features() {
   return <section className="features-section section-pad" id="features"><div className="container">
-    <div className="features-heading"><div><SectionKicker>03 / FIND YOUR FLOW</SectionKicker><h2>Quiet technology.<br/><span className="muted-italic">Right where it belongs.</span></h2></div><p>Check what matters with a glance at Slate’s e-ink display. Keep your schedule, watchlist, and system information nearby while staying with the task in front of you.</p></div>
+    <div className="features-heading"><div><SectionKicker>04 / YOUR DAY AT A GLANCE</SectionKicker><h2>Less switching.<br/><span className="muted-italic">More doing.</span></h2></div><p>Designed to keep your next meeting, market watchlist, or PC stats in view—with a dedicated e-ink display so you can stay focused on what you're doing. These integrations are planned and still in development.</p></div>
     <div className="feature-grid">
-      <article className="feature-card feature-card-large"><div className="feature-card-visual display-visual"><img src={`${ASSET}slate-display-context.webp`} loading="lazy" alt="Slate e-ink module surrounded by woven mat fabric, with part of a keyboard for scale and sample calendar, stock and temperature information"/></div><div className="feature-card-body"><div className="feature-number">01 / DISPLAY</div><h3>Stay in your flow.</h3><p>See your next Google Calendar event, follow your stock watchlist, or check CPU and GPU temperatures. Slate is designed to keep that information visible without searching through tabs or opening another dashboard.</p><div className="display-capabilities" aria-label="Planned display features"><span>Google Calendar</span><span>Stock market</span><span>CPU + GPU temps</span><span>More views to come</span></div><span className="feature-small">Sample display content · 6 in module concept</span></div></article>
-      <article className="feature-card feature-card-large"><div className="feature-card-visual charger-visual"><img src={`${ASSET}slate-charger.webp`} loading="lazy" alt="Slate integrated wireless charger concept close-up"/></div><div className="feature-card-body"><div className="feature-number">02 / POWER</div><h3>Charge without the clutter.</h3><p>A dedicated wireless charging module keeps your phone close and your surface uncluttered.</p><span className="feature-small">Removable module concept</span></div></article>
+      <article className="feature-card feature-card-large"><div className="feature-card-visual display-visual"><img src={`${ASSET}slate-display-context.webp`} loading="lazy" alt="Slate e-ink module surrounded by woven mat fabric, with part of a keyboard for scale and sample calendar, stock and temperature information"/></div><div className="feature-card-body"><div className="feature-number">01 / DISPLAY</div><h3>The essentials, at a glance.</h3><p>See your next Google Calendar event, follow your stock watchlist, or check CPU and GPU temperatures. Slate is designed to keep that information visible without searching through tabs or opening another dashboard.</p><div className="display-capabilities" aria-label="Planned display features"><span>Google Calendar</span><span>Stock market</span><span>CPU + GPU temps</span><span>More views to come</span></div><span className="feature-small">Sample display content · 6 in module concept</span></div></article>
+      <article className="feature-card feature-card-large"><div className="feature-card-visual charger-visual"><img src={`${ASSET}slate-charger.webp`} loading="lazy" alt="Slate integrated wireless charger concept close-up"/></div><div className="feature-card-body"><div className="feature-number">02 / POWER</div><h3>Make room for less clutter.</h3><p>A dedicated wireless charging module is planned to give your phone a place on the mat instead of adding another accessory to your desk.</p><span className="feature-small">Removable module concept</span></div></article>
       <article className="feature-card feature-card-small"><div className="feature-detail-img"><img src={`${ASSET}slate-edge.webp`} alt="Close-up of Slate's stitched fabric edge" loading="lazy"/></div><div className="feature-card-body compact"><div className="feature-number">03 / MATERIAL</div><h3>Made to feel at home.</h3><p>A soft, cohesive fabric surface with a tailored edge.</p></div></article>
       <article className="feature-card feature-card-small"><div className="feature-detail-img"><img src={`${ASSET}slate-cable.webp`} alt="Close-up of a single USB-C cable entering the Slate mat" loading="lazy"/></div><div className="feature-card-body compact"><div className="feature-number">04 / CONNECTION</div><h3>Less cable. More space.</h3><p>A single USB-C connection is planned to bring power and data to the mat.</p></div></article>
     </div><a className="inline-link chapter-next" href="#design">See how Slate evolves <ArrowDown size={16}/></a>
@@ -125,7 +175,7 @@ function SetupCarousel() {
 function Design() {
   return <section className="design-section section-pad" id="design"><div className="container design-grid">
     <SetupCarousel/>
-    <div className="design-copy-col"><SectionKicker>04 / THINK BEYOND TODAY</SectionKicker><h2>A surface you love.<br/><em>A platform you keep.</em></h2><p>Your workspace evolves, and your desk accessories should be able to evolve with it. Slate pairs a changeable fabric surface with independent display and charging modules. Refresh the surface or replace an individual component while keeping the rest of your setup in use.</p>
+    <div className="design-copy-col"><SectionKicker>05 / THINK BEYOND TODAY</SectionKicker><h2>Change your style.<br/><em>Keep your setup.</em></h2><p>Your workspace evolves, and your desk accessories should be able to evolve with it. Slate pairs a changeable fabric surface with independent display and charging modules. Refresh the surface or replace an individual component while keeping the rest of your setup in use.</p>
       <div className="design-points">
         <div><div className="point-icon"><RotateCcw size={21}/></div><div><h4>Replaceable modules</h4><p>The display and charger are designed to lift out individually, so one component can be replaced while the rest stays in use.</p></div></div>
         <div><div className="point-icon"><Layers3 size={21}/></div><div><h4>Changeable surface</h4><p>Refresh a worn surface or choose a new finish while keeping your electronics in use.</p></div></div>
@@ -139,7 +189,7 @@ function Design() {
 function Colorways({ onWaitlist, activeId, setActiveId }) {
   const active = colorways.find(c => c.id === activeId);
   return <section className="colorways-section section-pad" id="colors"><div className="container">
-    <div className="color-heading"><div><SectionKicker>05 / MAKE IT YOURS</SectionKicker><h2>Find your<br/><em>kind of Slate.</em></h2></div><p>Choose a finish that fits your space and explore the possibilities for your setup.</p></div>
+    <div className="color-heading"><div><SectionKicker>06 / MAKE IT YOURS</SectionKicker><h2>A desk that feels<br/><em>like yours.</em></h2></div><p>Choose a finish that fits your space and explore the possibilities for your setup.</p></div>
     <div className="color-layout"><div className="color-main-visual" aria-live="polite"><img key={active.id} src={`${ASSET}slate-${active.id}.webp`} alt={`${active.name} Slate concept with real-world keyboard and mouse designs and a sample calendar, stock and system-temperature dashboard`} loading="lazy"/><div className="preview-watermark">{active.name.toUpperCase()} · CONCEPT PREVIEW</div></div><div className="color-panel"><span className="color-panel-kicker">CHOOSE YOUR FINISH / 5 CONCEPTS</span><h3>{active.name}</h3><p>{active.description}</p><div className="swatch-list" role="group" aria-label="Choose a Slate colorway">{colorways.map(c => <button key={c.id} className={`swatch-button ${activeId === c.id ? 'active' : ''}`} onClick={() => setActiveId(c.id)} aria-pressed={activeId === c.id}><span className={`swatch-circle ${c.className}`} style={{'--swatch':c.color}}/><span>{c.name}</span>{activeId === c.id && <Check size={17} aria-hidden="true"/>}</button>)}</div><button className="button button-dark finish-cta" onClick={() => onWaitlist(active.name)}>Continue with {active.name} <ArrowUpRight size={16}/></button><div className="color-panel-bottom"><span className="status-dot"/><span>Finish preview with sample display data. Final materials and colors may vary.</span></div></div></div>
   </div></section>;
 }
@@ -160,11 +210,11 @@ function FAQ() {
 }
 
 function FinalCta({ finish, setFinish }) {
-  return <section className="destination section-pad" id="waitlist" aria-labelledby="destination-title"><div className="container destination-grid"><div className="destination-copy"><SectionKicker>06 / YOUR NEXT CHAPTER</SectionKicker><div className="arrival-ink"><EInkMark mood="welcome"/><span>Your next chapter starts here.</span></div><h2 id="destination-title">You’ve found<br/><em>your starting point.</em></h2><p>A premium surface, everyday information at a glance, and a modular platform designed to evolve with your workspace.</p><p>Join the Slate waitlist for launch news, available finishes, and pricing. Be among the first to hear when Slate is ready.</p><div className="destination-promise"><span>No payment today</span><span>Product updates only</span></div></div><WaitlistForm finish={finish} setFinish={setFinish}/></div></section>;
+  return <section className="destination section-pad" id="waitlist" aria-labelledby="destination-title"><div className="container destination-grid"><div className="destination-copy"><SectionKicker>07 / YOUR NEXT CHAPTER</SectionKicker><div className="arrival-ink"><EInkMark mood="welcome"/><span>Your next chapter starts here.</span></div><h2 id="destination-title">You’ve found<br/><em>your starting point.</em></h2><p>A premium surface, everyday information at a glance, and a modular platform designed to evolve with your workspace.</p><p>Join the Slate waitlist for launch news, available finishes, and pricing. Be among the first to hear when Slate is ready.</p><div className="destination-promise"><span>No payment today</span><span>Product updates only</span></div></div><WaitlistForm finish={finish} setFinish={setFinish}/></div></section>;
 }
 
 function Footer({ onWaitlist }) {
-  return <footer className="site-footer"><div className="container"><div className="footer-main"><div><Logo/><p>A more considered desk experience.<br/>Designed for the way you work.</p></div><div className="footer-links"><div><strong>Explore</strong><a href="#slate">Slate</a><a href="#features">Features</a><a href="#design">Design</a><a href="#colors">Colorways</a></div><div><strong>Stay in the loop</strong><button onClick={onWaitlist}>Join the waitlist <ArrowUpRight size={13}/></button><span>Currently in development.</span></div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} AVOLYN. Slate is in development.</span><span>Designed for your everyday.</span></div></div></footer>;
+  return <footer className="site-footer"><div className="container"><div className="footer-main"><div><Logo/><p>A smarter, more personal desk experience.<br/>Designed for work, play, and everything between.</p></div><div className="footer-links"><div><strong>Explore</strong><a href="#slate">Slate</a><a href="#for-you">Who it's for</a><a href="#features">Features</a><a href="#design">Design</a><a href="#colors">Colorways</a></div><div><strong>Stay in the loop</strong><button onClick={onWaitlist}>Join the waitlist <ArrowUpRight size={13}/></button><span>Currently in development.</span></div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} AVOLYN. Slate is in development.</span><span>Designed for your everyday.</span></div></div></footer>;
 }
 
 function WaitlistForm({ finish, setFinish }) {
@@ -194,10 +244,10 @@ function WaitlistForm({ finish, setFinish }) {
 }
 
 function Materials() {
-  return <section className="materials-section section-pad" id="materials"><div className="container"><div className="materials-heading"><div><SectionKicker>02 / FEEL THE DIFFERENCE</SectionKicker><h2>Premium begins<br/><em>at the surface.</em></h2></div><p>The texture beneath your hands. The finish along the edge. The way everything belongs together. These are the details that make a desk feel like yours.</p></div><div className="materials-grid"><div className="material-photo"><img src={`${ASSET}slate-texture.webp`} alt="Concept close-up of Slate’s woven fabric texture" loading="lazy"/><span>TACTILE BY DESIGN</span></div><div className="material-story"><span className="material-index">A CLOSER LOOK</span><h3>Soft texture.<br/>Considered construction.</h3><p>Our material direction centers on a premium woven surface with a linen-inspired character. One cohesive fabric canvas brings warmth to the space beneath your keyboard and mouse.</p><div className="material-details"><div><h4>A continuous fabric surface</h4><p>A consistent look and feel across the mat, with dedicated spaces for the display and charging modules.</p></div><div><h4>A carefully finished edge</h4><p>A tailored perimeter completes the surface with a clean, carefully finished edge.</p></div><div><h4>Built around renewal</h4><p>The changeable surface is designed to let you update the look of your mat while keeping the electronics.</p></div></div><p className="concept-note">Final fabric composition, construction, and care details will be shared before launch.</p><a className="inline-link" href="#features">Explore the technology <ArrowDown size={16}/></a></div></div></div></section>;
+  return <section className="materials-section section-pad" id="materials"><div className="container"><div className="materials-heading"><div><SectionKicker>03 / FEEL THE DIFFERENCE</SectionKicker><h2>Premium begins<br/><em>at the surface.</em></h2></div><p>The texture beneath your hands. The finish along the edge. The way everything belongs together. These are the details that make a desk feel like yours.</p></div><div className="materials-grid"><div className="material-photo"><img src={`${ASSET}slate-texture.webp`} alt="Concept close-up of Slate’s woven fabric texture" loading="lazy"/><span>TACTILE BY DESIGN</span></div><div className="material-story"><span className="material-index">A CLOSER LOOK</span><h3>Soft texture.<br/>Considered construction.</h3><p>Our material direction centers on a premium woven surface with a linen-inspired character. One cohesive fabric canvas brings warmth to the space beneath your keyboard and mouse.</p><div className="material-details"><div><h4>A continuous fabric surface</h4><p>A consistent look and feel across the mat, with dedicated spaces for the display and charging modules.</p></div><div><h4>A carefully finished edge</h4><p>A tailored perimeter completes the surface with a clean, carefully finished edge.</p></div><div><h4>Built around renewal</h4><p>The changeable surface is designed to let you update the look of your mat while keeping the electronics.</p></div></div><p className="concept-note">Final fabric composition, construction, and care details will be shared before launch.</p><a className="inline-link" href="#features">Explore the technology <ArrowDown size={16}/></a></div></div></div></section>;
 }
 
-const chapters = [['slate','The idea'],['materials','The feel'],['features','The function'],['design','The platform'],['colors','Your finish'],['waitlist','Your next chapter']];
+const chapters = [['slate','The idea'],['for-you','Who it’s for'],['materials','The feel'],['features','The function'],['design','The platform'],['colors','Your finish'],['waitlist','Join us']];
 function JourneyNav() {
   const [active, setActive] = useState('slate');
   useEffect(()=>{
@@ -212,5 +262,5 @@ function JourneyNav() {
 export default function App() {
   const [finish, setFinish] = useState('sakura');
   const goToWaitlist = () => document.getElementById('waitlist')?.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-  return <><Header onWaitlist={goToWaitlist}/><main><Hero/><JourneyNav/><Introduction/><Materials/><Features/><Design/><Colorways activeId={finish} setActiveId={setFinish} onWaitlist={goToWaitlist}/><FAQ/><FinalCta finish={finish} setFinish={setFinish}/></main><Footer onWaitlist={goToWaitlist}/></>;
+  return <><Header onWaitlist={goToWaitlist}/><main><Hero/><JourneyNav/><Introduction/><WhoItsFor/><Materials/><Features/><Design/><Colorways activeId={finish} setActiveId={setFinish} onWaitlist={goToWaitlist}/><FAQ/><FinalCta finish={finish} setFinish={setFinish}/></main><Footer onWaitlist={goToWaitlist}/></>;
 }
