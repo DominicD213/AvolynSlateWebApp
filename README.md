@@ -70,3 +70,9 @@ Product imagery now illustrates Google Calendar events, stock watchlists, and CP
 Workflow messaging emphasizes a quick glance at the e-ink display instead of switching tabs or opening a dashboard. No measured productivity gains are claimed.
 
 The display feature now uses `public/images/slate-display-context.webp`, showing surrounding fabric and a partial keyboard instead of an isolated dimension drawing.
+
+## Modularity and typography refresh (November 10, 2026)
+
+A new illustrated, three-stage modular story directly follows the existing platform carousel. It shows the same display and charger installed on a Linen concept, lifted above their openings, then installed on a Sage concept. The illustration is CSS-based, responsive, and labeled as a simplified development concept rather than a representation of the final attachment mechanism. The header, journey navigation, and footer link to `#modularity`, and the FAQ explains the intended transfer between compatible Slate surfaces.
+
+Small chapter labels, cards, support captions, concept notices, setup captions, footer links, and journey labels have been made larger and darker for legibility. Check both accessibility contrast and layout on actual browsers and mobile devices before launch.
