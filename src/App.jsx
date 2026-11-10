@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowDown, ArrowRight, ArrowUpRight, CalendarDays, Check, Cpu, Image, Layers3, Menu, Monitor, X, Zap } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, Layers3, Menu, Monitor, X, Zap } from 'lucide-react';
+
+import DisplayShowcase from './DisplayShowcase.jsx';
 
 const ASSET = `${import.meta.env.BASE_URL}images/`;
 const colorways = [
@@ -38,24 +40,10 @@ function Hero() {
 function SectionKicker({ children }) {
   return <p className="section-kicker"><span aria-hidden="true"/>{children}</p>;
 }
-const displayViews = [
-  { id: 'planner', label: 'Day planner', icon: CalendarDays, benefit: 'Your next meeting stays visible while your main screen stays on your work.' },
-  { id: 'stats', label: 'PC stats', icon: Cpu, benefit: 'Keep supported system readings beside your keyboard without opening a dashboard.' },
-  { id: 'personal', label: 'Your design', icon: Image, benefit: 'Make a quieter layout with a clock, a personal note, and your own background.' },
-];
-function DisplayPreview({ view }) {
-  return <div className={`eink-preview eink-preview--${view}`} role="img" aria-label={view === 'planner' ? 'Sample day planner: 9:41, design review at 10:30, focus time at 11:00.' : view === 'stats' ? 'Sample PC stats: CPU 54 degrees Celsius, GPU 62 degrees Celsius, memory 42 percent. Example readings, not live data.' : 'Sample personal layout: 9:41, Make room for a good day, with a decorative botanical background.'}>
-    {view === 'planner' && <><div className="eink-clock"><strong>09:41</strong><span>TUESDAY / 10 NOV</span></div><div className="eink-agenda"><span className="eink-label">UP NEXT</span><strong>10:30 <span>Design review</span></strong><span>11:00 · Focus time</span></div></>}
-    {view === 'stats' && <>{[['CPU', '54°C'], ['GPU', '62°C'], ['MEMORY', '42%']].map(([label, value]) => <div className="eink-stat" key={label}><span className="eink-label">{label}</span><strong>{value}</strong><span>EXAMPLE READING</span></div>)}</>}
-    {view === 'personal' && <><div className="eink-clock"><strong>09:41</strong><span>TUESDAY</span></div><div className="eink-personal"><span className="eink-label">A LITTLE REMINDER</span><strong>Make room<br/>for a good day.</strong></div><div className="eink-botanical" aria-hidden="true"><span/><span/><span/></div></>}
-  </div>;
-}
 function Features() {
-  const [view, setView] = useState('planner');
-  const active = displayViews.find(item => item.id === view);
   return <section className="features-section section-pad" id="features" aria-labelledby="features-title"><div className="container">
     <div className="display-intro"><div className="display-copy"><SectionKicker>THE E-INK DISPLAY</SectionKicker><h2 id="features-title">Your day in view.<br/><em>Your work on screen.</em></h2><p>Keep a useful detail beside your keyboard, so checking your next meeting doesn’t mean leaving what you’re doing.</p><span className="display-type"><Monitor size={17} aria-hidden="true"/>Information display · No touch input</span></div><figure className="display-photo"><img src={`${ASSET}slate-display-context.webp`} alt="Close-up concept of Slate's e-ink display set into the fabric mat, beside a keyboard and charging area" loading="lazy" width="1894" height="830"/><figcaption>Product concept · Sample display content</figcaption></figure></div>
-    <div className="app-demo" aria-labelledby="app-title"><div className="app-copy"><div className="app-icon" aria-hidden="true"><Monitor size={24}/></div><h3 id="app-title">Customize it in the<br/>Avolyn desktop app.</h3><p>Arrange widgets, add a background, and save your own display presets. Send a layout to Slate from your computer.</p><div className="display-view-picker" role="group" aria-label="Explore sample display layouts">{displayViews.map(item => <button type="button" key={item.id} aria-pressed={view === item.id} aria-controls="display-demo" onClick={() => setView(item.id)}><item.icon size={17} aria-hidden="true"/>{item.label}</button>)}</div></div><div className="app-preview" id="display-demo"><div className="preview-heading"><span>DISPLAY LAYOUT PREVIEW</span><span>AVOLYN / SLATE</span></div><div className="display-frame"><DisplayPreview view={view}/></div><p className="preview-benefit" aria-live="polite" aria-atomic="true">{active.benefit}</p><p className="preview-note">Interactive website demo · Sample data. Final integrations and system support to be confirmed.</p></div></div>
+    <DisplayShowcase/>
     <article className="charging-feature"><img src={`${ASSET}slate-hero.webp`} alt="Concept close-up of Slate's removable wireless charging area" loading="lazy"/><div><span className="feature-label"><Zap size={16} aria-hidden="true"/>WIRELESS CHARGING</span><h3>A home for your phone.</h3><p>A dedicated charging area, built into your mat. One fewer separate accessory on your desk.</p><span className="small-note">In development · Phone compatibility and charging speed to be confirmed.</span></div></article>
   </div></section>;
 }
@@ -83,7 +71,8 @@ function FAQ() {
     ['What is Avolyn Slate?', 'A modular desk mat being developed with an e-ink information display, a removable wireless charging module, and interchangeable mat finishes.'],
     ['Are the keyboard and mouse included?', 'No. Keyboards, mice, phones, computers and other desk accessories in the images are not included. Product images are concept renders; accessory brands are not affiliated with Avolyn.'],
     ['Is the display a touchscreen or touchpad?', 'No. The e-ink module displays information. You customize its layout in the Avolyn desktop app on your computer.'],
-    ['What can I put on the display?', 'The desktop app is being developed around editable widgets, backgrounds and saved presets. Planned views include clock and date, calendar events, PC stats, notes and personal layouts. Images and this website demo use sample data. Final integrations, supported systems and refresh intervals will be confirmed before launch.'],
+    ['How customizable is the screen?', 'Build a minimal clock or a detailed dashboard in the Avolyn desktop app. Add, move and resize widgets for calendars, time, tasks, notes, weather, news, pictures and supported PC stats. Choose a built-in background or add your own PNG/JPEG, change the font, and save or import your own presets. Website examples use sample data; final hardware behavior is still being validated.'],
+    ['Can I use Google or Microsoft Calendar?', 'The desktop app includes Google Calendar and Microsoft Calendar connections, calendar selection and agenda views. Account setup and permission are required; workplace accounts may need administrator approval. You can also import an .ics calendar file as a snapshot. Live customer sign-in and final hardware behavior are still being validated.'],
     ['Will it work with my computer and phone?', 'Final Windows and macOS support, connection requirements, compatible phones and charging speeds will be published after testing. Some PC sensors and connected data sources may need additional setup.'],
     ['Can I swap the mat or replace a module?', 'That is the design goal: release the display and charger from underneath, then refit them into a compatible Slate mat. Each module is intended to be replaceable separately. The attachment method, compatibility, spare parts, pricing and warranty are still being finalized.'],
     ['What are the materials and dimensions?', 'The current direction is a woven, linen-inspired surface with a tailored edge. Final fabric composition, dimensions and care instructions will be shared before orders open.'],

@@ -2,7 +2,7 @@
 
 React + Vite product website for a modular desk mat in development: an e-ink information display, wireless charging and interchangeable mat finishes.
 
-The homepage leads with the product and its display, explains customization in the Avolyn desktop app, and shows three interactive sample layouts: Day planner, PC stats and Your design. Short audience cards follow, then one underside-transfer illustration, the finish selector, FAQs and the waitlist.
+The homepage leads with the product and its display, explains customization in the Avolyn desktop app, and shows six interactive starting points: Minimal, Google Calendar, Microsoft Calendar, Daily dashboard, PC dashboard and Make it yours. Independent background and font controls demonstrate customization across layouts; an enlarged preview supports horizontal inspection on small screens. Short audience cards follow, then one underside-transfer illustration, the finish selector, FAQs and the waitlist.
 
 ## Run locally
 
@@ -31,8 +31,8 @@ Without an endpoint, the form says that details were not sent or saved. This pro
 ## Product and content boundaries
 
 - Product images are concept renders. Keyboards, mice, phones, computers and other desk accessories are not included. Accessory brands are not affiliated with Avolyn.
-- The website's display selector is an illustrative preview with sample data, not a screenshot of the desktop app, live integration or simulation of e-ink refresh speed. Layout changes happen on the computer; the e-ink module has no touch input.
-- Final integrations, Windows/macOS support, sensors, power requirements, charging speed, phone compatibility and display refresh timing remain to be confirmed for the shipping product.
+- The website's display, background and font selectors are illustrative previews with sample data, not screenshots of the desktop app, live integrations or simulations of e-ink refresh speed. Custom PNG/JPEG backgrounds are added in the desktop app; the website does not upload files or connect accounts. Layout changes happen on the computer; the e-ink module has no touch input.
+- The desktop app implements Google and Microsoft calendar account flows, widgets, fonts and backgrounds. Customer sign-in still needs provider setup and consent. Shipping hardware behavior, Windows/macOS support, sensors, power requirements, charging speed, phone compatibility and display refresh timing remain to be confirmed.
 - Modules are designed to release from the underside and move to compatible mats. The illustration is schematic, not final assembly instructions. Mounts, spare parts, compatibility, replacement pricing and warranty remain in development.
 - The woven, linen-inspired surface and five finishes describe the material direction. Final composition, dimensions and care instructions are not promised.
 - No confirmed launch date or price is published. The FAQ explains that pricing and starter-kit contents will be shared before orders open.
@@ -42,3 +42,7 @@ Without an endpoint, the form says that details were not sent or saved. This pro
 Nina and Autumn's feedback prompted removal of the numbered journey bar, repeated introductory/material/platform sections, extra section links, and the large failure/replacement block. Each audience card now has one title and one description. Fabric and finish content share a section. The page explicitly identifies the desktop app and excluded accessories, and replaces abstract workflow claims with concrete display examples.
 
 Rendered copy fell from 1,807 to 781 words (about 57% fewer), including FAQ answers and both navigation variants. See [VALIDATION.md](VALIDATION.md) for completed checks and limitations, and [the display preview](docs/slate-display-preview.png) for the reviewed desktop layout. Image creation history is retained in [IMAGE_PROMPTS.md](IMAGE_PROMPTS.md).
+
+## Custom display showcase
+
+The screen section follows the current desktop app capabilities: movable/resizable widgets, Google and Microsoft calendar connections, background themes, custom PNG/JPEG backgrounds, three font families and personal presets. The website demonstrates four background directions and three fonts across six sample layouts at the 792 × 272 display aspect ratio. These are starting points rather than a fixed list of possible screens. See [display-showcase notes](docs/display-showcase.md) for source provenance and validation.
