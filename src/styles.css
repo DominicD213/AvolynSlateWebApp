@@ -198,3 +198,30 @@ button.eink-mark{position:relative;display:inline-flex;align-items:center;justif
 .intro-section{background:#fbfaf7}
 .audience-section{background:#e6dbcf}
 .modular-story{background:#e2d6ca}
+
+/* If one module needs replacement, keep the mat and everything else. */
+.module-repair{margin-top:52px;border:1px solid #ccb8a7;background:#f9f5ee;border-radius:8px;padding:clamp(24px,3.3vw,46px)}
+.module-repair-heading{display:flex;align-items:end;justify-content:space-between;gap:38px;margin-bottom:30px}
+.module-repair-kicker{display:block;font-size:12px;font-weight:800;letter-spacing:.13em;color:#775541;margin-bottom:16px}
+.module-repair-heading h3{font-family:Manrope,sans-serif;font-size:clamp(30px,3.3vw,47px);letter-spacing:-.065em;line-height:1.15;font-weight:650;margin:0}
+.module-repair-heading h3 em{font-family:Georgia,serif;font-style:normal;font-weight:400;letter-spacing:-.045em}
+.module-repair-heading>p{max-width:385px;line-height:1.75;color:#64594e;font-size:15px;margin:0}
+.module-repair-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.module-repair-card{min-width:0;background:#eee7de;border:1px solid #d4c6b8;border-radius:7px;padding:23px 24px}
+.module-repair-card-title{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-weight:800;color:#604b3a;font-size:12px;letter-spacing:.06em;line-height:1.5}
+.module-repair-card-title span:last-child{color:#73675d;font-weight:600;letter-spacing:0}
+.module-repair-flow{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.7vw,33px);min-height:155px;padding:21px 6px}
+.module-repair-unit{width:min(37%,155px);min-height:107px;border:2px solid #514a40;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;text-align:center;background:#e6ded3;color:#453b31}
+.module-repair-unit svg{margin-bottom:1px}
+.module-repair-unit>span{font-weight:800;letter-spacing:.08em;font-size:12px}
+.module-repair-unit>small{font-size:12px;font-weight:650}
+.module-repair-unit--old{border-style:dashed;color:#7d514b;background:#e9dcd4}
+.module-repair-unit--new{background:#f7f4e9;border-color:#576b5b;color:#375442}
+.module-repair-unit--charger{border-radius:25px}
+.module-repair-arrow{flex:none;color:#6c5443}
+.module-repair-card>p{font-size:14px;line-height:1.7;color:#65584d;margin:0}
+.module-repair-outro{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:22px;text-align:center;color:#554434;font-size:14px;font-weight:700;line-height:1.6}
+.module-repair-outro svg{flex:none}
+@media(max-width:1040px){.module-repair-heading{align-items:start}.module-repair-card{padding:19px}.module-repair-flow{gap:11px}.module-repair-unit{min-height:93px}.module-repair-unit>span{font-size:11px}.module-repair-card-title{font-size:11px}}
+@media(max-width:760px){.module-repair-heading{display:block}.module-repair-heading>p{margin-top:19px;max-width:610px}.module-repair-options{grid-template-columns:1fr}.module-repair-card{padding:22px}.module-repair-flow{gap:24px}.module-repair-unit{min-height:105px}.module-repair-unit>span{font-size:12px}}
+@media(max-width:400px){.module-repair{padding:18px}.module-repair-card{padding:17px}.module-repair-flow{gap:12px}.module-repair-unit{width:39%;min-height:95px}.module-repair-unit>small{font-size:11px}.module-repair-card-title span:last-child{font-size:11px}}
