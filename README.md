@@ -2,6 +2,15 @@
 
 React + Vite product story with a six-chapter journey, premium material narrative, modular platform positioning, five image-based finishes, FAQs and a bottom-of-page waitlist. Every signup CTA scrolls to the inline destination form, and selected finishes carry through.
 
+
+## Audience-first homepage positioning (November 2026)
+
+The homepage now directly explains who Slate is for: professionals balancing a busy day, gaming/PC enthusiasts, and creators and developers. The opening statement identifies Slate as a premium modular desk mat rather than relying only on abstract lifestyle language. A dedicated "Who it's for" section reuses the existing work, gaming, and studio concept scenes and describes the value for each audience. Navigation, chapter numbers, CTA copy, section headlines, and SEO metadata follow the same positioning.
+
+**Claims policy:** All audience scenes are concept renders with sample data. Calendar, stock, PC-temperature and wireless charging integrations remain planned features, not shipping functionality. Modules and surface replaceability describe design intent; they are not tested durability or compatibility guarantees. No launch date, pricing, compatibility or measured productivity improvement is promised.
+
+**Review checklist:** Confirm hero text contrast and section spacing at desktop/tablet/mobile widths; verify navigation links include `#for-you`; confirm all three images load from `public/images`; check all journey anchors, colorway selections, and waitlist form behavior. Check the actual deployment and the mobile browser before approving a merge.
+
 ## Run on Windows
 
 Extract this ZIP first. Open a terminal in the folder containing package.json.
