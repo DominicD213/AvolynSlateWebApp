@@ -175,9 +175,9 @@ function SetupCarousel() {
 function Design() {
   return <section className="design-section section-pad" id="design"><div className="container design-grid">
     <SetupCarousel/>
-    <div className="design-copy-col"><SectionKicker>05 / A PLATFORM THAT LASTS</SectionKicker><h2>Change your style.<br/><em>Keep your setup.</em></h2><p>Change the style of your desk without starting over. Slate is designed so the display and wireless charger are separate from the fabric surface. The goal: lift your modules out, move them into a compatible replacement mat, and keep the technology you already own.</p>
+    <div className="design-copy-col"><SectionKicker>05 / A PLATFORM THAT LASTS</SectionKicker><h2>Change your style.<br/><em>Keep your setup.</em></h2><p>Change the style of your desk without starting over. Slate is designed so the display and wireless charger are separate from the fabric surface. The goal: release your modules from underneath, fit them into a compatible replacement mat, and keep the technology you already own.</p>
       <div className="design-points">
-        <div><div className="point-icon"><RotateCcw size={21}/></div><div><h4>Replaceable modules</h4><p>The display and charger are designed to lift out individually, so one component can be replaced while the rest stays in use.</p></div></div>
+        <div><div className="point-icon"><RotateCcw size={21}/></div><div><h4>Replaceable modules</h4><p>The display and charger are designed to be removed individually from the underside, so you can change a module while keeping the rest of your setup.</p></div></div>
         <div><div className="point-icon"><Layers3 size={21}/></div><div><h4>Changeable surface</h4><p>Refresh a worn surface or choose a new finish while keeping your electronics in use.</p></div></div>
         <div><div className="point-icon"><Leaf size={21}/></div><div><h4>Designed with years in mind</h4><p>Separating the surface from the technology supports our goal: a platform you can maintain and use for years.</p></div></div>
       </div>
@@ -191,20 +191,20 @@ function ModularSwapStory() {
   const stages = [
     {
       number: '01', label: 'YOUR ORIGINAL MAT',
-      title: 'Start with your favorite setup.',
-      copy: 'Your display and charging modules sit in their dedicated spaces on your first Slate surface.',
+      title: 'Start with your first setup.',
+      copy: 'The display and charging areas are accessible on top, while their removable module housings are designed to be reached from the underside.',
       finish: 'linen', state: 'installed', note: 'Linen concept'
     },
     {
-      number: '02', label: 'TAKE THE MODULES WITH YOU',
-      title: 'Lift out the technology.',
-      copy: 'The intended modular design lets you separate the electronics from the fabric mat instead of replacing the whole setup.',
-      finish: 'linen', state: 'lifted', note: 'Modules shown removed'
+      number: '02', label: 'REMOVE FROM BELOW',
+      title: 'Access the modules underneath.',
+      copy: 'Turn the mat over to access the mounts. The intended design lets you release the display and charger from the bottom side, not pull them up through the surface.',
+      finish: 'linen', state: 'underside', note: 'Underside view · concept'
     },
     {
-      number: '03', label: 'REFRESH YOUR SURFACE',
-      title: 'A new mat. The same tech.',
-      copy: 'Move those modules into another compatible Slate surface and make your workspace feel new again.',
+      number: '03', label: 'MOVE TO A NEW MAT',
+      title: 'New finish. Same electronics.',
+      copy: 'Install the same modules into another compatible Slate mat from its underside, updating your desk without replacing the core hardware.',
       finish: 'sage', state: 'installed', note: 'Sage concept'
     }
   ];
@@ -223,18 +223,32 @@ function ModularSwapStory() {
       <div className="modular-story-steps" aria-label="Three conceptual steps for transferring Slate modules between desk mats">
         {stages.map(stage => <article className="modular-step" key={stage.number}>
           <div className="modular-step-top"><span>{stage.number} / {stage.label}</span><span>{stage.note}</span></div>
-          <div className={`modular-diagram modular-diagram--${stage.finish} modular-diagram--${stage.state}`} role="img" aria-label={stage.state === 'lifted' ? 'Illustration showing an e-ink display module and wireless charger raised above their openings in the desk mat' : `Illustration of ${stage.finish} desk mat with the e-ink display and wireless charging modules installed`}>
-            <div className="modular-diagram-surface">
-              <div className="modular-slot modular-slot--display"/>
-              <div className="modular-slot modular-slot--charger"/>
-              <div className="modular-part modular-part--display"><span className="modular-part-screen"><span className="modular-screen-line"/><span className="modular-screen-time">09:41</span><span className="modular-screen-line modular-screen-line--short"/></span></div>
-              <div className="modular-part modular-part--charger"><span className="modular-charge-ring"><span className="modular-bolt">ϟ</span></span></div>
-            </div>
+          <div className={`modular-diagram modular-diagram--${stage.finish} modular-diagram--${stage.state}`} role="img" aria-label={stage.state === 'underside' ? 'Conceptual underside view of a desk mat, with display and charger module housings detached beneath their mounting locations' : `Conceptual top view of ${stage.finish} desk mat with the display and charging areas installed`}>
+            {stage.state === 'underside' ? (
+              <div className="modular-under-view">
+                <div className="modular-under-view-label">UNDERSIDE OF MAT <ArrowDown size={15} aria-hidden="true"/></div>
+                <div className="modular-under-board">
+                  <div className="modular-under-mount modular-under-mount--display"><span>Display mount</span></div>
+                  <div className="modular-under-mount modular-under-mount--charger"><span>Charger mount</span></div>
+                </div>
+                <div className="modular-under-parts">
+                  <div className="modular-under-part modular-under-part--display"><span>DISPLAY</span><small>Module housing</small></div>
+                  <div className="modular-under-part modular-under-part--charger"><span>CHARGER</span><small>Module housing</small></div>
+                </div>
+              </div>
+            ) : (
+              <div className="modular-diagram-surface">
+                <div className="modular-slot modular-slot--display"/>
+                <div className="modular-slot modular-slot--charger"/>
+                <div className="modular-part modular-part--display"><span className="modular-part-screen"><span className="modular-screen-line"/><span className="modular-screen-time">09:41</span><span className="modular-screen-line modular-screen-line--short"/></span></div>
+                <div className="modular-part modular-part--charger"><span className="modular-charge-ring"><span className="modular-bolt">ϟ</span></span></div>
+              </div>
+            )}
           </div>
           <div className="modular-step-copy"><h3>{stage.title}</h3><p>{stage.copy}</p></div>
         </article>)}
       </div>
-      <p className="modular-development-note"><span className="modular-development-mark" aria-hidden="true">i</span><span><strong>Design concept, not final hardware instructions.</strong> The removable attachment system, ease of swapping, and compatibility between surfaces are still being developed and tested. Illustrations are simplified and not to scale.</span></p>
+      <p className="modular-development-note"><span className="modular-development-mark" aria-hidden="true">i</span><span><strong>Design concept, not final hardware instructions.</strong> The underside removal method, attachment system, ease of swapping, and compatibility between surfaces are still being developed and tested. Illustrations are simplified and not to scale.</span></p>
     </div>
   </section>;
 }
@@ -252,7 +266,7 @@ function FAQ() {
   const items = [
     ['When can I buy Slate?', 'Slate is currently in development. Join the waitlist for launch timing, pricing, and availability. No orders or payments are being accepted on this preview.'],
     ['What makes Slate different?', 'Slate brings a fabric desk surface, compact e-ink module, and removable wireless charging module into one cohesive design. The goal is fewer separate accessories and everyday information you can check without switching tabs, all in a setup that is easier to make your own.'],
-    ['Can I move my display and charger to a different mat?', 'That is central to Slate’s modular design goal. The display and charging modules are intended to be removable and transferable to another compatible Slate surface, so you can refresh your mat without rebuying its electronics. The attachment mechanism, swapping process, and compatibility are still being developed and tested.'],
+    ['Can I move my display and charger to a different mat?', 'That is central to Slate’s modular design goal. The display and charging modules are intended to release from underneath the mat and transfer to another compatible Slate surface, so you can refresh your mat without rebuying its electronics. The attachment mechanism, swapping process, and compatibility are still being developed and tested.'],
     ['Will it charge my iPhone or Android phone?', 'Wireless charging is planned. Supported phone models, cases, charging standards, power requirements, and charging speeds will be published after hardware testing.'],
     ['What materials will Slate use?', 'The current direction is a premium woven fabric surface with a linen-inspired texture, a finished perimeter, and removable electronics housings. Exact fiber composition, production materials, and care instructions will be confirmed before launch.'],
     ['How long will Slate last?', 'Our aim is a platform you can use for years by changing the surface and replacing individual modules. A tested service life, warranty terms, replacement-part availability, and future module compatibility have not been finalized.'],
