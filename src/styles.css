@@ -56,38 +56,8 @@ p { line-height: 1.75; }
 .display-photo { overflow: hidden; border-radius: 6px; background: #ece1d3; }
 .display-photo img { width: 100%; height: 310px; object-fit: cover; object-position: 35% center; }
 .display-photo figcaption { padding: 12px 18px; }
-.app-demo { display: grid; grid-template-columns: .8fr 1.2fr; gap: 6%; margin-top: 56px; border: 1px solid #d9cdbf; border-radius: 8px; padding: 38px; background: #f1eae0; align-items: center; }
-.app-icon { display: inline-flex; padding: 11px; border-radius: 12px; background: #ddd0c0; color: #514333; margin-bottom: 18px; }
-.app-copy h3 { font-size: clamp(25px, 2.3vw, 32px); }
-.app-copy > p { font-size: 15px; color: #64584e; margin: 16px 0 22px; max-width: 355px; }
-.display-view-picker { display: flex; flex-wrap: wrap; gap: 8px; }
-.display-view-picker button { display: flex; align-items: center; gap: 7px; min-height: 44px; border: 1px solid #bcab97; border-radius: 4px; background: transparent; padding: 10px 12px; color: #534738; font-size: 13px; font-weight: 650; }
-.display-view-picker button[aria-pressed='true'] { background: #38332b; color: #fff8ed; border-color: #38332b; }
-.display-view-picker button:hover:not([aria-pressed='true']) { background: #fff9f0; }
-.app-preview { min-width: 0; }
 .preview-heading { display: flex; justify-content: space-between; gap: 15px; color: #6a5948; font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 14px; }
 .display-frame { padding: 12px; background: #5c5145; border-radius: 10px; box-shadow: 0 8px 18px #513b2420; }
-.eink-preview { min-height: 164px; display: flex; align-items: center; gap: 22px; padding: 25px; border-radius: 3px; background: #edece4; color: #272822; overflow: hidden; }
-.eink-clock { display: flex; flex-direction: column; flex: none; gap: 12px; }
-.eink-clock strong { font-size: clamp(31px, 3.5vw, 49px); letter-spacing: -.06em; font-weight: 600; line-height: 1; }
-.eink-clock > span { font-size: 10px; letter-spacing: .03em; font-weight: 750; }
-.eink-agenda { display: flex; flex-direction: column; border-left: 1px solid #87887c; padding-left: 22px; gap: 10px; font-size: 13px; }
-.eink-label { font-size: 10px; font-weight: 750; letter-spacing: .07em; }
-.eink-agenda strong { font-size: 15px; }
-.eink-agenda strong > span { display: block; margin-top: 3px; font-weight: 500; }
-.eink-preview--stats { justify-content: space-between; gap: 10px; }
-.eink-stat { display: flex; flex-direction: column; gap: 12px; }
-.eink-stat strong { font-size: clamp(27px, 3vw, 42px); font-weight: 600; letter-spacing: -.045em; }
-.eink-stat > span:last-child { font-size: 8px; }
-.eink-preview--personal { gap: 20px; position: relative; }
-.eink-personal { display: flex; flex-direction: column; gap: 10px; z-index: 1; }
-.eink-personal strong { font-family: Georgia, serif; font-size: 21px; font-weight: 400; line-height: 1.25; }
-.eink-botanical { position: absolute; right: -4px; bottom: -20px; height: 125px; width: 62px; border-left: 2px solid #555b4b; transform: rotate(-22deg); opacity: .5; }
-.eink-botanical span { position: absolute; width: 36px; height: 19px; border-radius: 80% 0 80% 0; background: #555b4b; }
-.eink-botanical span:nth-child(1) { top: 14px; left: -36px; }
-.eink-botanical span:nth-child(2) { top: 48px; }
-.eink-botanical span:nth-child(3) { top: 80px; left: -36px; }
-.preview-benefit { font-size: 15px; line-height: 1.65; margin-top: 20px; min-height: 50px; color: #4e4338; }
 .preview-note { font-size: 12px; line-height: 1.6; color: #695b4c; margin-top: 11px; }
 .charging-feature { display: grid; grid-template-columns: .65fr 1.35fr; gap: 42px; align-items: center; margin-top: 30px; border: 1px solid #ded4c6; border-radius: 7px; overflow: hidden; background: #f7f3ed; }
 .charging-feature > img { width: 100%; height: 235px; object-fit: cover; object-position: 75% center; }
@@ -189,10 +159,7 @@ p { line-height: 1.75; }
   .container { width: calc(100% - 64px); }
   .nav-links { gap: 20px; }
   .display-intro { gap: 5%; grid-template-columns: .9fr 1.1fr; }
-  .app-demo { padding: 28px; gap: 30px; grid-template-columns: .75fr 1.25fr; }
   .display-photo img { height: 330px; }
-  .eink-preview { padding: 22px 18px; gap: 17px; }
-  .eink-agenda { padding-left: 16px; }
   .modular-layout { grid-template-columns: .7fr 1.3fr; gap: 4%; }
   .swap-visual { padding: 22px; }
   .swap-stages { gap: 9px; grid-template-columns: 1fr 20px 1fr; }
@@ -218,18 +185,6 @@ p { line-height: 1.75; }
   .display-intro { grid-template-columns: 1fr; gap: 30px; }
   .display-copy > p:not(.section-kicker) { max-width: 530px; }
   .display-photo img { height: auto; aspect-ratio: 2.2; object-fit: cover; }
-  .app-demo { grid-template-columns: 1fr; gap: 30px; margin-top: 30px; }
-  .app-copy > p { max-width: 600px; }
-  .app-copy h3 br { display: none; }
-  .app-icon { display: none; }
-  .eink-preview { min-height: 170px; padding: 25px 32px; gap: 30px; }
-  .eink-clock strong { font-size: 48px; }
-  .eink-clock > span { font-size: 11px; }
-  .eink-agenda { font-size: 14px; gap: 11px; padding-left: 30px; }
-  .eink-agenda strong { font-size: 17px; }
-  .eink-agenda strong > span { display: inline; margin-left: 10px; }
-  .eink-stat strong { font-size: 40px; }
-  .preview-benefit { min-height: auto; }
   .charging-feature { gap: 25px; grid-template-columns: .7fr 1.3fr; }
   .charging-feature > img { height: 260px; }
   .charging-feature > div { padding-right: 25px; }
@@ -274,26 +229,9 @@ p { line-height: 1.75; }
   h2 { font-size: clamp(34px, 8.6vw, 46px); }
   .display-photo img { aspect-ratio: 1.65; object-position: 28% center; }
   .display-photo figcaption { font-size: 12px; padding: 11px 14px; }
-  .app-demo { padding: 22px 18px; }
-  .app-copy h3 { font-size: 27px; }
-  .display-view-picker { gap: 6px; }
-  .display-view-picker button { padding-inline: 9px; font-size: 12px; gap: 5px; }
-  .display-view-picker svg { width: 15px; }
   .preview-heading { font-size: 10px; }
   .preview-heading > span:last-child { display: none; }
   .display-frame { padding: 8px; border-radius: 7px; }
-  .eink-preview { min-height: 142px; padding: 19px 14px; gap: 17px; }
-  .eink-clock strong { font-size: clamp(27px, 8.5vw, 38px); }
-  .eink-clock > span { font-size: 8px; }
-  .eink-label { font-size: 9px; }
-  .eink-agenda { padding-left: 14px; font-size: 11px; gap: 9px; }
-  .eink-agenda strong { font-size: 14px; }
-  .eink-agenda strong > span { display: block; margin-left: 0; }
-  .eink-stat strong { font-size: clamp(23px, 7vw, 32px); }
-  .eink-stat > span:last-child { font-size: 6px; }
-  .eink-personal strong { font-size: 18px; }
-  .eink-botanical { opacity: .23; }
-  .preview-benefit { font-size: 14px; }
   .charging-feature { grid-template-columns: .65fr 1fr; gap: 0; }
   .charging-feature > img { height: 100%; min-height: 265px; object-position: 75% center; }
   .charging-feature > div { padding: 22px 19px; }
