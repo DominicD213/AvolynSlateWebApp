@@ -80,3 +80,7 @@ Small chapter labels, cards, support captions, concept notices, setup captions, 
 ## November 2026 refinement: contrast and underside removal
 
 Sections 1 and 2 now use different backgrounds (near-white intro and warm taupe audience) to make the chapter transition easier to perceive. The modular-transfer story's middle step is explicitly a diagram of the **underside** of the mat with electronic housings below the attachment bays. The concept does not show electronics being pulled upward through the top. The FAQ and adjacent design language describe module release from underneath. Exact fastener design and transfer procedure remain in development; do not publish this simplified schematic as verified assembly instructions.
+
+## Replace a failed module (November 2026)
+
+The modularity section includes a dedicated "One part stops working. Keep the rest." block with conceptual before/after illustrations for separately replacing the display or charger, while retaining the mat and remaining working component. The design benefit is intended independent serviceability; no tested ease-of-repair rating, guaranteed DIY operation, production spare availability, warranty coverage, replacement pricing or specific module compatibility is promised. A corresponding FAQ answers the failure scenario explicitly. Review the actual attachment and safety requirements before finalizing customer-facing service promises.
