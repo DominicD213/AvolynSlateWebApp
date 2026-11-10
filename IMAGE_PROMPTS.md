@@ -39,3 +39,11 @@ Professional sample content: `GOOGLE CALENDAR | 10:30 Design review | 14:00 Proj
 MacBook sample content: `MARKETS | AAPL 225.10 +0.8% | MSFT 418.20 +0.4%`.
 
 These values are illustrative. They are not current stock quotes or live system readings.
+
+## Colorful creative workspace — November 10, 2026
+
+Final asset: `public/images/slate-setup-creative-v2.webp`. Generated with the built-in image tool using `public/images/slate-setup-studio.webp` as the edit target. The generated PNG was encoded as WebP for delivery without compositional edits; original source asset is retained. This is a design concept, not product photography or a newly confirmed production colorway.
+
+Prompt:
+
+> Use case: precise-object-edit. Asset type: landscape product concept image for Avolyn Slate website creative audience card. Edit the provided image into a clearly colorful creative designer/illustrator workspace. Keep the exact same desk mat shape, believable 800x350mm proportions, small long e-ink module embedded at top center-left, single small round button next to it, rectangular phone wireless charging area top-right and one USB cable emerging at top middle. Preserve functional layout; the entire desk mat should remain visible with keyboard and mouse. Change the neutral cream mat finish to rich dusty lavender or muted teal, use a colorful compact keyboard with cream/lilac/coral keycaps, a vivid abstract artwork on the monitor, colorful printed swatch cards, illustration sketchbook with bright marker drawings, pens and art supplies around the mat, one small plant. Warm natural daylight and premium tactile woven fabric, creative and personal, aesthetically curated rather than cluttered. Screen remains strictly black and white e-ink, small readable simple clock or agenda sample only. No large text, marketing copy, dimensional arrows, logos or watermark. Landscape approximately 3:2. Image is a product concept, not a technical diagram.

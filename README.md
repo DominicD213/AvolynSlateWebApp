@@ -1,8 +1,17 @@
 # Slate by Avolyn
 
-React + Vite product website for a modular desk mat in development: an e-ink information display, wireless charging and interchangeable mat finishes.
+React + Vite website for a modular desk mat in development, with a dedicated e-ink display, wireless charging and a swappable mat.
 
-The homepage leads with the product and its display, explains customization in the Avolyn desktop app, and shows six interactive starting points: Minimal, Google Calendar, Microsoft Calendar, Daily dashboard, PC dashboard and Make it yours. Independent background and font controls demonstrate customization across layouts; an enlarged preview supports horizontal inspection on small screens. Short audience cards follow, then one underside-transfer illustration, the finish selector, FAQs and the waitlist.
+## Pages
+
+| URL | Purpose |
+| --- | --- |
+| `/` | About Slate: product, rotating display examples, audiences, modularity, finishes and waitlist |
+| `/specs/` | Current design dimensions, display, charging rating, power/data connections and setup requirements |
+| `/faq/` | Product, setup, software, charging and ordering questions |
+| `/updates/` | Current development status, launch timing and dated progress notes |
+
+These are separate HTML entry points with distinct titles/descriptions. Navigation opens documents rather than scrolling between homepage sections. Only the waitlist CTA and skip link use section anchors. Each page can be loaded and refreshed directly on a static host.
 
 ## Run locally
 
@@ -11,38 +20,41 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Open the Local URL printed by Vite. `npm.cmd` avoids the PowerShell script execution-policy issue. On macOS/Linux, use `npm ci` and `npm run dev`.
+Open Vite's Local URL. `npm.cmd` avoids the Windows PowerShell script execution-policy issue. On macOS/Linux, use `npm ci` and `npm run dev`.
 
-## Production build
+## Build and deploy
 
 ```powershell
 npm.cmd run build
 npm.cmd run preview
 ```
 
-Deploy the contents of `dist` to your static host. Source is in `src/App.jsx` and `src/styles.css`. This branch is for review; merging and production deployment require the owner's approval.
+Upload all of `dist`, preserving the `specs`, `faq`, `updates` and `assets` folders. The host must serve directory `index.html` files. The Vite multi-page inputs are in `vite.config.js`; no SPA rewrite or client router is required.
+
+The branch is for review. Do not merge or deploy until the owner approves.
+
+## Product facts and pricing
+
+`src/product.js` holds shared values. Current design: 800 × 350 mm mat, 5.79-inch black/white display, 792 × 272 pixels. The prototype uses a charging module rated at 15 W; assembled charging output is not validated. Final adapter requirements and included cables are unresolved, so no adapter rating or delivered charging guarantee is invented.
+
+`PRODUCT.priceUsd` is `null` because retail pricing has not been finalized. The hero prominently shows “Pricing to be announced.” Once an actual public price is approved, populate this value and update the related FAQ/package content. Internal planning figures are not retail commitments.
+
+Power, USB and local 2.4 GHz Wi-Fi serve different roles. The Specs page explains computer/app requirements for live data and the difference between wired transfer, wireless transfer and external power. Current development status and known unknowns are retained in `docs/specs-provenance.md`.
+
+## Homepage examples
+
+Four sample layouts rotate every seven seconds: minimal, combined calendars, PC stats and a personal background. Prev/next, direct selection and pause/play remain available. Interaction pauses rotation; reduced-motion preference disables automatic rotation. Hover, enlarged mode and hidden tabs suspend automatic advancement. A phone can enlarge the screen inside a contained horizontal scroll region.
+
+Examples are illustrations with fictional data, not the desktop app itself or a demonstration of e-ink refresh timing. Editing widgets, fonts and backgrounds happens in the desktop app. No file upload or calendar sign-in is added to this website.
 
 ## Waitlist
 
-Copy `.env.example` to `.env` and configure `VITE_WAITLIST_ENDPOINT` with an HTTPS service that accepts POST JSON containing `name`, `email`, `finish`, `product` and `source`. It must accept requests from the site's origin and return success only after accepting a signup. Restart Vite after changing environment variables. Do not put secrets in VITE variables.
+Copy `.env.example` to `.env` and set `VITE_WAITLIST_ENDPOINT` to an HTTPS service accepting POST JSON with `name`, `email`, `finish`, `product` and `source`. It must allow the site's origin and return success only after accepting a signup. Restart Vite after environment changes. Do not put secrets in VITE variables.
 
-Without an endpoint, the form says that details were not sent or saved. This project includes no signup backend, checkout, payments or ordering. The finish selected on the homepage and in the form stays in sync.
+Without an endpoint, the form clearly states details were not sent or saved. No signup backend, checkout or payment processing is included. Finish selections on the homepage and form stay in sync.
 
-## Product and content boundaries
+## Assets and review
 
-- Product images are concept renders. Keyboards, mice, phones, computers and other desk accessories are not included. Accessory brands are not affiliated with Avolyn.
-- The website's display, background and font selectors are illustrative previews with sample data, not screenshots of the desktop app, live integrations or simulations of e-ink refresh speed. Custom PNG/JPEG backgrounds are added in the desktop app; the website does not upload files or connect accounts. Layout changes happen on the computer; the e-ink module has no touch input.
-- The desktop app implements Google and Microsoft calendar account flows, widgets, fonts and backgrounds. Customer sign-in still needs provider setup and consent. Shipping hardware behavior, Windows/macOS support, sensors, power requirements, charging speed, phone compatibility and display refresh timing remain to be confirmed.
-- Modules are designed to release from the underside and move to compatible mats. The illustration is schematic, not final assembly instructions. Mounts, spare parts, compatibility, replacement pricing and warranty remain in development.
-- The woven, linen-inspired surface and five finishes describe the material direction. Final composition, dimensions and care instructions are not promised.
-- No confirmed launch date or price is published. The FAQ explains that pricing and starter-kit contents will be shared before orders open.
+Product images are concept renders. Desk accessories are not included, and accessory brands are not affiliated with Avolyn. Final materials, mounts, compatibility, spare parts, warranty, shipping hardware and launch timing remain in development. The creative audience image has a more colorful workspace; see `IMAGE_PROMPTS.md` for its creation record.
 
-## Feedback revision
-
-Nina and Autumn's feedback prompted removal of the numbered journey bar, repeated introductory/material/platform sections, extra section links, and the large failure/replacement block. Each audience card now has one title and one description. Fabric and finish content share a section. The page explicitly identifies the desktop app and excluded accessories, and replaces abstract workflow claims with concrete display examples.
-
-Rendered copy fell from 1,807 to 781 words (about 57% fewer), including FAQ answers and both navigation variants. See [VALIDATION.md](VALIDATION.md) for completed checks and limitations, and [the display preview](docs/slate-display-preview.png) for the reviewed desktop layout. Image creation history is retained in [IMAGE_PROMPTS.md](IMAGE_PROMPTS.md).
-
-## Custom display showcase
-
-The screen section follows the current desktop app capabilities: movable/resizable widgets, Google and Microsoft calendar connections, background themes, custom PNG/JPEG backgrounds, three font families and personal presets. The website demonstrates four background directions and three fonts across six sample layouts at the 792 × 272 display aspect ratio. These are starting points rather than a fixed list of possible screens. See [display-showcase notes](docs/display-showcase.md) for source provenance and validation.
+Current review images: [homepage](docs/slate-pages-home.png) and [Specs](docs/slate-specs-page.png). `VALIDATION.md` records the checks and their limits. Earlier screenshots and showcase notes are historical; the current screen treatment is the carousel.
