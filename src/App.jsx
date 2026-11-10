@@ -177,7 +177,7 @@ function Design() {
     <SetupCarousel/>
     <div className="design-copy-col"><SectionKicker>05 / A PLATFORM THAT LASTS</SectionKicker><h2>Change your style.<br/><em>Keep your setup.</em></h2><p>Change the style of your desk without starting over. Slate is designed so the display and wireless charger are separate from the fabric surface. The goal: release your modules from underneath, fit them into a compatible replacement mat, and keep the technology you already own.</p>
       <div className="design-points">
-        <div><div className="point-icon"><RotateCcw size={21}/></div><div><h4>Replaceable modules</h4><p>The display and charger are designed to be removed individually from the underside, so you can change a module while keeping the rest of your setup.</p></div></div>
+        <div><div className="point-icon"><RotateCcw size={21}/></div><div><h4>Replace only what needs replacing</h4><p>If the display or charger stops working, Slate is designed so that individual module can be swapped from underneath—without replacing the full mat. Final replacement options are still being developed.</p></div></div>
         <div><div className="point-icon"><Layers3 size={21}/></div><div><h4>Changeable surface</h4><p>Refresh a worn surface or choose a new finish while keeping your electronics in use.</p></div></div>
         <div><div className="point-icon"><Leaf size={21}/></div><div><h4>Designed with years in mind</h4><p>Separating the surface from the technology supports our goal: a platform you can maintain and use for years.</p></div></div>
       </div>
@@ -248,7 +248,38 @@ function ModularSwapStory() {
           <div className="modular-step-copy"><h3>{stage.title}</h3><p>{stage.copy}</p></div>
         </article>)}
       </div>
-      <p className="modular-development-note"><span className="modular-development-mark" aria-hidden="true">i</span><span><strong>Design concept, not final hardware instructions.</strong> The underside removal method, attachment system, ease of swapping, and compatibility between surfaces are still being developed and tested. Illustrations are simplified and not to scale.</span></p>
+
+      <div className="module-repair" aria-labelledby="module-repair-title">
+        <div className="module-repair-heading">
+          <div>
+            <span className="module-repair-kicker">BUILT AROUND REPLACEMENT</span>
+            <h3 id="module-repair-title">One part stops working.<br/><em>Keep the rest.</em></h3>
+          </div>
+          <p>Accidents and wear can happen. Slate is being designed so you could replace a failed display or charger from the underside of your mat, instead of buying an entirely new desk mat.</p>
+        </div>
+        <div className="module-repair-options">
+          <div className="module-repair-card">
+            <div className="module-repair-card-title"><span>01 / DISPLAY MODULE</span><span>Replacement concept</span></div>
+            <div className="module-repair-flow" role="img" aria-label="Concept illustration: a nonworking display module is exchanged for a replacement display module while the desk mat is kept.">
+              <div className="module-repair-unit module-repair-unit--display module-repair-unit--old"><X size={17} aria-hidden="true"/><span>DISPLAY</span><small>Not working</small></div>
+              <ArrowRight size={23} className="module-repair-arrow" aria-hidden="true"/>
+              <div className="module-repair-unit module-repair-unit--display module-repair-unit--new"><Check size={17} aria-hidden="true"/><span>DISPLAY</span><small>Replacement</small></div>
+            </div>
+            <p>Keep your mat and charger. Replace the display module if it needs service.</p>
+          </div>
+          <div className="module-repair-card">
+            <div className="module-repair-card-title"><span>02 / CHARGING MODULE</span><span>Replacement concept</span></div>
+            <div className="module-repair-flow" role="img" aria-label="Concept illustration: a nonworking wireless charging module is exchanged for a replacement charger module while the desk mat is kept.">
+              <div className="module-repair-unit module-repair-unit--charger module-repair-unit--old"><X size={17} aria-hidden="true"/><span>CHARGER</span><small>Not working</small></div>
+              <ArrowRight size={23} className="module-repair-arrow" aria-hidden="true"/>
+              <div className="module-repair-unit module-repair-unit--charger module-repair-unit--new"><Check size={17} aria-hidden="true"/><span>CHARGER</span><small>Replacement</small></div>
+            </div>
+            <p>Keep your mat and display. Replace only the charging module if needed.</p>
+          </div>
+        </div>
+        <div className="module-repair-outro"><Check size={18} aria-hidden="true"/><span>Same mat. Same setup. Only the part you need to change.</span></div>
+      </div>
+      <p className="modular-development-note"><span className="modular-development-mark" aria-hidden="true">i</span><span><strong>Design concepts, not final hardware instructions.</strong> The underside removal method, attachment system, replacement process, cross-surface compatibility, and availability of spare modules are still being developed or determined. Illustrations are simplified and not to scale; warranty terms have not been finalized.</span></p>
     </div>
   </section>;
 }
@@ -267,9 +298,10 @@ function FAQ() {
     ['When can I buy Slate?', 'Slate is currently in development. Join the waitlist for launch timing, pricing, and availability. No orders or payments are being accepted on this preview.'],
     ['What makes Slate different?', 'Slate brings a fabric desk surface, compact e-ink module, and removable wireless charging module into one cohesive design. The goal is fewer separate accessories and everyday information you can check without switching tabs, all in a setup that is easier to make your own.'],
     ['Can I move my display and charger to a different mat?', 'That is central to Slate’s modular design goal. The display and charging modules are intended to release from underneath the mat and transfer to another compatible Slate surface, so you can refresh your mat without rebuying its electronics. The attachment mechanism, swapping process, and compatibility are still being developed and tested.'],
+    ['What happens if the screen or wireless charger breaks?', 'Slate is being designed so the display and charging modules can be removed individually from underneath the mat. The goal is to replace only the failed module while keeping your mat and the other working components. The replacement procedure, spare-part pricing and availability, service policy, and warranty are not finalized.'],
     ['Will it charge my iPhone or Android phone?', 'Wireless charging is planned. Supported phone models, cases, charging standards, power requirements, and charging speeds will be published after hardware testing.'],
     ['What materials will Slate use?', 'The current direction is a premium woven fabric surface with a linen-inspired texture, a finished perimeter, and removable electronics housings. Exact fiber composition, production materials, and care instructions will be confirmed before launch.'],
-    ['How long will Slate last?', 'Our aim is a platform you can use for years by changing the surface and replacing individual modules. A tested service life, warranty terms, replacement-part availability, and future module compatibility have not been finalized.'],
+    ['How long will Slate last?', 'Our aim is a platform you can keep using by refreshing its surface and replacing individual modules when needed. A tested service life, warranty terms, replacement-part availability, and future module compatibility have not been finalized.'],
     ['Are the keyboard and mouse included?', 'No. Keyboards, mice, phones, laptops, and other desk accessories are shown for illustration and are not included. Concept renders depict Keychron, Logitech, and Apple products. These brands are not affiliated with Avolyn.'],
     ['What will the display show?', 'Planned views include Google Calendar events, stock market information, CPU and GPU temperatures, and other useful daily information. The renderings show sample content. Final integrations, supported systems, data sources, and update intervals will be confirmed before launch.']
   ];
