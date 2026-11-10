@@ -82,7 +82,7 @@ const audienceStories = [
     id: 'work',
     kicker: 'FOR THE FOCUSED',
     title: 'Work with fewer interruptions.',
-    copy: 'For people balancing meetings, deep work, and the details of a busy day. Slate is designed to put upcoming events within a glance, so your main screen can stay on what matters.',
+    copy: 'For people balancing meetings and focused work. Slate aims to keep your next calendar event in view while your main screen stays on the task.',
     detail: 'Planned display view: calendar and daily schedule',
     image: 'slate-setup-work.webp',
     alt: 'Concept of Slate on a warm professional desk, with a keyboard and sample calendar information shown on the e-ink display'
@@ -91,7 +91,7 @@ const audienceStories = [
     id: 'gaming',
     kicker: 'FOR THE ENTHUSIASTS',
     title: 'Make your setup your own.',
-    copy: 'For gamers and PC builders who put thought into every part of their desk. Bring together a premium mouse surface, personal finishes, and a dedicated place for useful system information.',
+    copy: 'For gamers and PC builders who care about their setup. Bring together a premium mouse surface, personal finishes, and planned system-status views.',
     detail: 'Planned display view: CPU and GPU temperatures',
     image: 'slate-setup-gaming.webp',
     alt: 'Concept of Charcoal Slate in a gaming setup with sample computer system temperatures on the e-ink display'
@@ -100,7 +100,7 @@ const audienceStories = [
     id: 'studio',
     kicker: 'FOR THE CREATORS',
     title: 'Leave room for your next idea.',
-    copy: 'For designers, developers, and anyone who creates at their desk. Give your tools a cohesive home, personalize the surface, and keep the small details in sight without crowding your workspace.',
+    copy: 'For designers, developers, and makers. Give your tools a cohesive home, personalize the surface, and keep daily details nearby without adding clutter.',
     detail: 'Design goal: interchangeable surface and modules',
     image: 'slate-setup-studio.webp',
     alt: 'Concept of Slate in a light creative studio with keyboard, mouse and sample information on the e-ink display'
