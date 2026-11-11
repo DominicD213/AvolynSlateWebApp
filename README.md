@@ -43,7 +43,7 @@ Power, USB and local 2.4 GHz Wi-Fi serve different roles. The Specs page explain
 
 ## Homepage examples
 
-Four sample layouts rotate every three seconds: minimal, combined calendars, PC stats and a personal background. Prev/next, direct selection and pause/play remain available. Only the explicit Pause control pauses rotation; reduced-motion preference disables automatic rotation. Clicking arrows/dots, swiping, hovering, focusing controls and enlarging the screen do not stop autoplay. Each slide change starts a fresh three-second interval. Hidden tabs skip automatic advancement. A phone can enlarge the screen inside a contained horizontal scroll region.
+Four sample layouts rotate every two seconds: minimal, combined calendars, PC stats and a personal background. Prev/next, direct selection and pause/play remain available. One clock owns one pending timeout; rendering a new slide does not replace or duplicate it. Manual navigation gives the selected slide a fresh two-second interval. Hover, focus and enlargement do not pause it. Explicit Pause and reduced-motion preferences stop automatic rotation. Returning from a hidden tab starts a full interval with no catch-up jumps. A delayed foreground callback advances exactly one slide, then waits a full interval again. A phone can enlarge the screen inside a contained horizontal scroll region.
 
 Examples are illustrations with fictional data, not the desktop app itself or a demonstration of e-ink refresh timing. Editing widgets, fonts and backgrounds happens in the desktop app. No file upload or calendar sign-in is added to this website.
 
@@ -61,4 +61,6 @@ Current review images: [homepage](docs/slate-pages-home.png) and [Specs](docs/sl
 
 ## Audience images
 
-The three setup cards use restored 1672 × 941 concept images with matching uncropped proportions. Responsive 640/1024/1672-pixel WebP candidates (quality 94) let the browser select enough detail for its display density. Versioned asset names avoid cached older images. Source direction and provenance are in `IMAGE_PROMPTS.md`.
+The three setup cards load full-resolution 1672 × 941 lossless WebP masters directly, without a thumbnail `srcSet` or `sizes` fallback. The masters decode pixel-for-pixel identically to the original PNGs. They preserve matching, uncropped proportions. Versioned master URLs prevent reuse of older thumbnails. These files are larger (about 1.9–2.2 MB each), lazy-loaded below the display section. No upscaling or invented detail was added. Source direction and provenance are in `IMAGE_PROMPTS.md`.
+
+Run `npm test` for timing regressions covering ordered loops, duplicate starts, canceled callbacks, pause/resume and delayed tasks.

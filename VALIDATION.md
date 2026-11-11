@@ -1,6 +1,15 @@
-# Validation — November 10, 2026
+# Validation — November 11, 2026
 
-## Current follow-up: setup image quality and three-second rotation
+## Current follow-up: full-resolution delivery and a single two-second clock
+
+- `npm test`: four timing regression tests passed, covering three ordered loops, duplicate starts/stale callbacks, pause/visibility resume, and a blocked browser task without catch-up skipping. `npm run build` and `git diff --check` passed.
+- The timer no longer depends on the slide index/render effect. One pending timeout advances one slide at a time. Manual navigation restarts a full interval; hover/focus/zoom do not stop it. Hidden-tab/page lifecycle cleanup prevents stale callbacks and restarts a full interval when visible.
+- Live DOM timing recordings in 390 px phone and 820 px desktop frames covered four consecutive complete cycles in order without skipped slides. The retained steady-state intervals were 1975–2028 ms on phone and 1997–2010 ms on desktop. Evidence: `docs/slate-two-second-timing.json`. This is observed browser scheduling, not an exact real-time guarantee under OS suspension or a blocked main thread.
+- Source PNG masters were recovered for the existing scenes. All three new 1672 × 941 lossless WebP files decode pixel-for-pixel identically to those originals. No upscaling or generated detail. The audience cards no longer have thumbnail `srcSet`/`sizes` candidates; new master URLs avoid older cached thumbnails. Tradeoff: about 1.9–2.2 MB per image, lazy-loaded below the display.
+- UI Pause held the slide through the intervening checks; Play resumed from it in 2063 ms while still enlarged. Manual Next and enlarged view were exercised. All three cards loaded their actual 1672 × 941 master URLs on both phone and desktop, with no `srcSet` candidates. Phone frame had no horizontal overflow. Desktop review: `docs/slate-lossless-image-review.png`. Screen-size frames are not physical-device testing; OS reduced-motion switching and physical swipe gestures were not exercised.
+- Branch: `fix/steady-carousel-and-full-resolution-images`, based on the merged PR #3. No merge or original-site deployment. The same changes are published to the existing private phone preview.
+
+## Earlier follow-up: setup image quality and three-second rotation
 
 - Replaced all three audience-card images with newly restored 1672 × 941 concept images. Inspected full-size originals and the desktop cards. All preserve the full mat with matching proportions. Delivery assets use quality-94 WebP at 640/1024/1672 px, versioned URLs, correct intrinsic dimensions and responsive `srcSet`/`sizes`.
 - `npm run build` passed with all four page entries; `git diff --check` passed.
