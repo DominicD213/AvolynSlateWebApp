@@ -47,3 +47,20 @@ Final asset: `public/images/slate-setup-creative-v2.webp`. Generated with the bu
 Prompt:
 
 > Use case: precise-object-edit. Asset type: landscape product concept image for Avolyn Slate website creative audience card. Edit the provided image into a clearly colorful creative designer/illustrator workspace. Keep the exact same desk mat shape, believable 800x350mm proportions, small long e-ink module embedded at top center-left, single small round button next to it, rectangular phone wireless charging area top-right and one USB cable emerging at top middle. Preserve functional layout; the entire desk mat should remain visible with keyboard and mouse. Change the neutral cream mat finish to rich dusty lavender or muted teal, use a colorful compact keyboard with cream/lilac/coral keycaps, a vivid abstract artwork on the monitor, colorful printed swatch cards, illustration sketchbook with bright marker drawings, pens and art supplies around the mat, one small plant. Warm natural daylight and premium tactile woven fabric, creative and personal, aesthetically curated rather than cluttered. Screen remains strictly black and white e-ink, small readable simple clock or agenda sample only. No large text, marketing copy, dimensional arrows, logos or watermark. Landscape approximately 3:2. Image is a product concept, not a technical diagram.
+
+## Setup image quality restoration — November 10, 2026
+
+Built-in image editing used the existing work, gaming and creative-v2 images as their respective edit targets. Final new sources are 1672 × 941 pixels. High-quality WebP delivery (quality 94, method 6) includes the full source dimensions and 640/1024 px responsive reductions; there is no upscaling. All three preserve the full mat in a matching landscape aspect ratio. Previous assets are retained.
+
+Final assets: `public/images/slate-setup-work-v2.webp`, `public/images/slate-setup-gaming-v2.webp`, `public/images/slate-setup-creative-v3.webp`, plus `-640` and `-1024` siblings.
+
+Shared prompt:
+
+> Use case: precise-object-edit. Asset type: high-resolution website lifestyle product concept photograph. Edit the supplied image to improve image quality substantially: recreate crisp, natural photographic detail, coherent fine woven desk mat texture, clean stitched edges, realistic sharp keyboard keycaps and mouse surfaces, accurate wood grain and clean small module borders. Preserve the same composition, camera angle, environment, lighting, color palette, product geometry and accessories. Keep the continuous wide fabric desk mat, one small wide black-and-white e-ink screen near its top center, adjacent single round button, top-right phone charging zone, single cable at top middle. Keep the full mat comfortably inside the frame. The screen must remain tiny monochrome non-touch e-ink; no glow. High-end editorial product photography with sufficient depth of field so the whole mat is sharp; natural microcontrast without crunchy artificial sharpening. Output a large, detailed landscape image, ideally 3072x1728, approximately 16:9. No text overlays, no watermarks, no added branding or features. This is a quality restoration; do not redesign the product or change the scene.
+
+Per-image additions:
+- Work: Preserve warm cream focused-work workspace and pale peripherals.
+- Gaming: Preserve charcoal gaming workspace, black peripherals and restrained purple lighting.
+- Creative: Preserve colorful teal creative workspace, pastel lilac/coral keyboard, swatches, illustration sketchbook and bright abstract monitor art.
+
+Actual generated dimensions were 1672 × 941, not the suggested 3072 × 1728. Images remain illustrative concepts, not final hardware photographs.

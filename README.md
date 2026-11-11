@@ -43,7 +43,7 @@ Power, USB and local 2.4 GHz Wi-Fi serve different roles. The Specs page explain
 
 ## Homepage examples
 
-Four sample layouts rotate every seven seconds: minimal, combined calendars, PC stats and a personal background. Prev/next, direct selection and pause/play remain available. Interaction pauses rotation; reduced-motion preference disables automatic rotation. Hover, enlarged mode and hidden tabs suspend automatic advancement. A phone can enlarge the screen inside a contained horizontal scroll region.
+Four sample layouts rotate every three seconds: minimal, combined calendars, PC stats and a personal background. Prev/next, direct selection and pause/play remain available. Only the explicit Pause control pauses rotation; reduced-motion preference disables automatic rotation. Clicking arrows/dots, swiping, hovering, focusing controls and enlarging the screen do not stop autoplay. Each slide change starts a fresh three-second interval. Hidden tabs skip automatic advancement. A phone can enlarge the screen inside a contained horizontal scroll region.
 
 Examples are illustrations with fictional data, not the desktop app itself or a demonstration of e-ink refresh timing. Editing widgets, fonts and backgrounds happens in the desktop app. No file upload or calendar sign-in is added to this website.
 
@@ -58,3 +58,7 @@ Without an endpoint, the form clearly states details were not sent or saved. No 
 Product images are concept renders. Desk accessories are not included, and accessory brands are not affiliated with Avolyn. Final materials, mounts, compatibility, spare parts, warranty, shipping hardware and launch timing remain in development. The creative audience image has a more colorful workspace; see `IMAGE_PROMPTS.md` for its creation record.
 
 Current review images: [homepage](docs/slate-pages-home.png) and [Specs](docs/slate-specs-page.png). `VALIDATION.md` records the checks and their limits. Earlier screenshots and showcase notes are historical; the current screen treatment is the carousel.
+
+## Audience images
+
+The three setup cards use restored 1672 × 941 concept images with matching uncropped proportions. Responsive 640/1024/1672-pixel WebP candidates (quality 94) let the browser select enough detail for its display density. Versioned asset names avoid cached older images. Source direction and provenance are in `IMAGE_PROMPTS.md`.

@@ -63,14 +63,13 @@ function SampleScreen({ layout, background, font, patternId }) {
 export default function DisplayShowcase() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [reduced, setReduced] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
   const [zoomed, setZoomed] = useState(false);
   const touch = useRef(null);
   const active = slides[index];
   const id = useId().replace(/:/g, '');
   const move = amount => setIndex(value => (value + amount + slides.length) % slides.length);
-  const choose = value => { setIndex(value); setPaused(true); };
+  const choose = value => setIndex(value);
   useEffect(() => {
     const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     const update = () => setReduced(media.matches);
@@ -78,17 +77,20 @@ export default function DisplayShowcase() {
     return () => media?.removeEventListener?.('change', update);
   }, []);
   useEffect(() => {
-    if (paused || hovered || reduced || zoomed) return;
-    const timer = window.setInterval(() => { if (!document.hidden) move(1); }, 7000);
+    if (paused || reduced) return;
+    // Start a fresh three seconds after each automatic or manual slide change.
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setIndex(value => (value + 1) % slides.length);
+    }, 3000);
     return () => window.clearInterval(timer);
-  }, [paused, hovered, reduced, zoomed]);
-  return <section className="screen-showcase" role="region" aria-roledescription="carousel" aria-label="Slate display examples" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={event => { if (!event.target.closest('[data-carousel-toggle]')) setPaused(true); }}>
+  }, [index, paused, reduced]);
+  return <section className="screen-showcase" role="region" aria-roledescription="carousel" aria-label="Slate display examples">
     <div className="showcase-intro"><h3>Your screen.<br/><em>Your way.</em></h3><div><p>Customize widgets, layouts, fonts and backgrounds in the Avolyn desktop app. These are just a few possibilities.</p><div className="calendar-services"><span><CalendarDays size={17} aria-hidden="true"/>Google Calendar</span><span><CalendarDays size={17} aria-hidden="true"/>Microsoft Calendar</span></div></div></div>
     <div className="carousel-preview-top"><span>DISPLAY EXAMPLES</span><button type="button" className="preview-zoom" aria-pressed={zoomed} onClick={() => setZoomed(value => !value)}>{zoomed ? 'Fit example' : 'Enlarge example'}</button></div>
-    <div className={`screen-scroll ${zoomed ? 'is-zoomed' : ''}`} tabIndex={zoomed ? 0 : undefined} role="region" aria-label="Screen example. Scroll horizontally when enlarged." onTouchStart={event => { touch.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }} onTouchEnd={event => { if (!touch.current || zoomed) return; const dx = event.changedTouches[0].clientX - touch.current.x, dy = event.changedTouches[0].clientY - touch.current.y; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) { move(dx < 0 ? 1 : -1); setPaused(true); } touch.current = null; }} onTouchCancel={() => { touch.current = null; }}>
+    <div className={`screen-scroll ${zoomed ? 'is-zoomed' : ''}`} tabIndex={zoomed ? 0 : undefined} role="region" aria-label="Screen example. Scroll horizontally when enlarged." onTouchStart={event => { touch.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }} onTouchEnd={event => { const start = touch.current; touch.current = null; if (!start || zoomed) return; const dx = event.changedTouches[0].clientX - start.x, dy = event.changedTouches[0].clientY - start.y; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0 ? 1 : -1); }} onTouchCancel={() => { touch.current = null; }}>
       <div className="display-frame" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${slides.length}: ${active.title}`}><div role="img" aria-label={`${active.title} ${active.description} Illustrative layout with sample data.`}><SampleScreen layout={active.id} background={active.background} font={active.font} patternId={`${id}-pattern`}/></div></div>
     </div>
-    <div className="carousel-bottom"><div className="carousel-caption" aria-live={paused || reduced ? 'polite' : 'off'} aria-atomic="true"><h4>{active.title}</h4><p>{active.description}</p></div><div className="carousel-controls"><button type="button" aria-label="Previous screen example" onClick={() => { move(-1); setPaused(true); }}><ArrowLeft size={18}/></button>{!reduced && <button type="button" data-carousel-toggle aria-label={paused ? 'Play screen examples' : 'Pause screen examples'} onClick={() => setPaused(value => !value)}>{paused ? <Play size={17}/> : <Pause size={17}/>}</button>}<button type="button" aria-label="Next screen example" onClick={() => { move(1); setPaused(true); }}><ArrowRight size={18}/></button></div></div>
+    <div className="carousel-bottom"><div className="carousel-caption" aria-live={paused || reduced ? 'polite' : 'off'} aria-atomic="true"><h4>{active.title}</h4><p>{active.description}</p></div><div className="carousel-controls"><button type="button" aria-label="Previous screen example" onClick={() => move(-1)}><ArrowLeft size={18}/></button>{!reduced && <button type="button" aria-label={paused ? 'Play screen examples' : 'Pause screen examples'} onClick={() => setPaused(value => !value)}>{paused ? <Play size={17}/> : <Pause size={17}/>}</button>}<button type="button" aria-label="Next screen example" onClick={() => move(1)}><ArrowRight size={18}/></button></div></div>
     <div className="carousel-dots" role="group" aria-label="Choose a screen example">{slides.map((slide, i) => <button type="button" key={slide.id} aria-label={`Show example ${i + 1}: ${slide.title}`} aria-pressed={index === i} onClick={() => choose(i)}><span/></button>)}</div>
     <p className="preview-note">Sample layouts and data. Backgrounds can also be added from your own PNG or JPEG in the desktop app.</p>
   </section>;
