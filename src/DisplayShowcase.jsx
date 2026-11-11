@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import './DisplayShowcase.css';
+import { createCarouselClock } from './carouselClock.js';
 import { ArrowLeft, ArrowRight, CalendarDays, Pause, Play } from 'lucide-react';
 
 const slides = [
@@ -66,10 +67,14 @@ export default function DisplayShowcase() {
   const [reduced, setReduced] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
   const [zoomed, setZoomed] = useState(false);
   const touch = useRef(null);
+  const autoplay = useRef(null);
   const active = slides[index];
   const id = useId().replace(/:/g, '');
-  const move = amount => setIndex(value => (value + amount + slides.length) % slides.length);
-  const choose = value => setIndex(value);
+  const move = amount => {
+    setIndex(value => (value + amount + slides.length) % slides.length);
+    autoplay.current?.restart();
+  };
+  const choose = value => { setIndex(value); autoplay.current?.restart(); };
   useEffect(() => {
     const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     const update = () => setReduced(media.matches);
@@ -78,12 +83,22 @@ export default function DisplayShowcase() {
   }, []);
   useEffect(() => {
     if (paused || reduced) return;
-    // Start a fresh three seconds after each automatic or manual slide change.
-    const timer = window.setInterval(() => {
-      if (!document.hidden) setIndex(value => (value + 1) % slides.length);
-    }, 3000);
-    return () => window.clearInterval(timer);
-  }, [index, paused, reduced]);
+    const clock = createCarouselClock(() => setIndex(value => (value + 1) % slides.length));
+    autoplay.current = clock;
+    const syncVisibility = () => document.hidden ? clock.stop() : clock.start();
+    const stop = () => clock.stop();
+    syncVisibility();
+    document.addEventListener('visibilitychange', syncVisibility);
+    window.addEventListener('pagehide', stop);
+    window.addEventListener('pageshow', syncVisibility);
+    return () => {
+      clock.stop();
+      autoplay.current = null;
+      document.removeEventListener('visibilitychange', syncVisibility);
+      window.removeEventListener('pagehide', stop);
+      window.removeEventListener('pageshow', syncVisibility);
+    };
+  }, [paused, reduced]);
   return <section className="screen-showcase" role="region" aria-roledescription="carousel" aria-label="Slate display examples">
     <div className="showcase-intro"><h3>Your screen.<br/><em>Your way.</em></h3><div><p>Customize widgets, layouts, fonts and backgrounds in the Avolyn desktop app. These are just a few possibilities.</p><div className="calendar-services"><span><CalendarDays size={17} aria-hidden="true"/>Google Calendar</span><span><CalendarDays size={17} aria-hidden="true"/>Microsoft Calendar</span></div></div></div>
     <div className="carousel-preview-top"><span>DISPLAY EXAMPLES</span><button type="button" className="preview-zoom" aria-pressed={zoomed} onClick={() => setZoomed(value => !value)}>{zoomed ? 'Fit example' : 'Enlarge example'}</button></div>

@@ -64,3 +64,7 @@ Per-image additions:
 - Creative: Preserve colorful teal creative workspace, pastel lilac/coral keyboard, swatches, illustration sketchbook and bright abstract monitor art.
 
 Actual generated dimensions were 1672 × 941, not the suggested 3072 × 1728. Images remain illustrative concepts, not final hardware photographs.
+
+## Full-resolution delivery follow-up — November 11, 2026
+
+Recovered the original 1672 × 941 PNG masters for the existing work/gaming/creative restoration. No further image generation or visual editing. Encoded full-size lossless WebP, verified identical decoded RGB pixels, and removed all thumbnail candidate selection from the audience cards. New delivery files: `slate-setup-work-master-v3.webp`, `slate-setup-gaming-master-v3.webp`, `slate-setup-creative-master-v4.webp`. Previous renders and responsive assets are retained for history but are no longer referenced by these cards.

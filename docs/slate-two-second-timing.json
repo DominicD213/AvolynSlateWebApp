@@ -1,0 +1,134 @@
+{
+  "phone": [
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2006
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 2003
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 1994
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 2000
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2001
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 2002
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 2001
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 2002
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2002
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 1998
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 2028
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 1996
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2024
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 1975
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 2003
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 1997
+    }
+  ],
+  "desktop": [
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2006
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 2001
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 2001
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 1999
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2010
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 2006
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 1997
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 2001
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2009
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 1999
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 2002
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 2004
+    },
+    {
+      "slide": "2 of 4: Bring your day together.",
+      "intervalMs": 2003
+    },
+    {
+      "slide": "3 of 4: Keep an eye on your setup.",
+      "intervalMs": 1999
+    },
+    {
+      "slide": "4 of 4: Make the screen your own.",
+      "intervalMs": 1998
+    },
+    {
+      "slide": "1 of 4: Keep it simple.",
+      "intervalMs": 2002
+    }
+  ]
+}
